@@ -1,0 +1,93 @@
+# Log de Acessos ao Sistema
+
+acessos:
+  - id: 1
+    usuarioId: 1
+    usuarioNome: "Maria Silva Santos"
+    tipo: "admin"
+    dataHora: "2025-10-29 08:30:00"
+    ip: "192.168.1.100"
+    navegador: "Chrome 118"
+    acao: "login"
+
+  - id: 2
+    usuarioId: 2
+    usuarioNome: "João Pedro Oliveira"
+    tipo: "voluntario"
+    dataHora: "2025-10-28 14:15:00"
+    ip: "192.168.1.101"
+    navegador: "Firefox 119"
+    acao: "login"
+
+  - id: 3
+    usuarioId: 3
+    usuarioNome: "Ana Carolina Ferreira"
+    tipo: "voluntario"
+    dataHora: "2025-10-29 09:45:00"
+    ip: "192.168.1.102"
+    navegador: "Safari 17"
+    acao: "login"
+
+  - id: 4
+    usuarioId: 1
+    usuarioNome: "Maria Silva Santos"
+    tipo: "admin"
+    dataHora: "2025-10-29 10:00:00"
+    ip: "192.168.1.100"
+    navegador: "Chrome 118"
+    acao: "visualizou_dashboard"
+
+  - id: 5
+    usuarioId: 2
+    usuarioNome: "João Pedro Oliveira"
+    tipo: "voluntario"
+    dataHora: "2025-10-28 14:20:00"
+    ip: "192.168.1.101"
+    navegador: "Firefox 119"
+    acao: "editou_perfil"
+
+  - id: 6
+    usuarioId: 5
+    usuarioNome: "Beatriz Souza Costa"
+    tipo: "voluntario"
+    dataHora: "2025-10-29 07:30:00"
+    ip: "192.168.1.105"
+    navegador: "Edge 118"
+    acao: "login"
+
+  - id: 7
+    usuarioId: 1
+    usuarioNome: "Maria Silva Santos"
+    tipo: "admin"
+    dataHora: "2025-10-29 10:15:00"
+    ip: "192.168.1.100"
+    navegador: "Chrome 118"
+    acao: "adicionou_projeto"
+
+  - id: 8
+    usuarioId: 4
+    usuarioNome: "Carlos Eduardo Lima"
+    tipo: "voluntario"
+    dataHora: "2025-10-27 16:45:00"
+    ip: "192.168.1.104"
+    navegador: "Chrome 118"
+    acao: "login"
+
+  - id: 9
+    usuarioId: 6
+    usuarioNome: "Rafael Almeida Santos"
+    tipo: "voluntario"
+    dataHora: "2025-10-26 11:20:00"
+    ip: "192.168.1.106"
+    navegador: "Firefox 119"
+    acao: "login"
+
+  - id: 10
+    usuarioId: 1
+    usuarioNome: "Maria Silva Santos"
+    tipo: "admin"
+    dataHora: "2025-10-29 10:30:00"
+    ip: "192.168.1.100"
+    navegador: "Chrome 118"
+    acao: "editou_voluntario"
+

@@ -1,0 +1,235 @@
+/* ===================================
+   DESIGN SYSTEM - VARIÁVEIS CSS
+   C Legacy Foundation
+   =================================== */
+
+:root {
+    /* ===================================
+       PALETA DE CORES (8+ cores)
+       =================================== */
+    
+    /* Cores Primárias */
+    --color-primary-900: #003d6b;      /* Azul escuro profundo */
+    --color-primary-700: #005a9c;      /* Azul principal */
+    --color-primary-500: #0077cc;      /* Azul médio */
+    --color-primary-300: #00a8e8;      /* Azul claro */
+    --color-primary-100: #e6f4fb;      /* Azul muito claro */
+    
+    /* Cores Secundárias */
+    --color-secondary-900: #c77800;    /* Laranja escuro */
+    --color-secondary-700: #f39c12;    /* Laranja principal */
+    --color-secondary-500: #f5b041;    /* Laranja médio */
+    --color-secondary-300: #f8c471;    /* Laranja claro */
+    --color-secondary-100: #fef5e7;    /* Laranja muito claro */
+    
+    /* Cores Neutras */
+    --color-neutral-900: #1a1a1a;      /* Preto suave */
+    --color-neutral-800: #2c2c2c;      /* Cinza muito escuro */
+    --color-neutral-700: #4a4a4a;      /* Cinza escuro */
+    --color-neutral-600: #666666;      /* Cinza médio escuro */
+    --color-neutral-500: #888888;      /* Cinza médio */
+    --color-neutral-400: #aaaaaa;      /* Cinza médio claro */
+    --color-neutral-300: #cccccc;      /* Cinza claro */
+    --color-neutral-200: #dddddd;      /* Cinza muito claro */
+    --color-neutral-100: #f4f4f4;      /* Cinza quase branco */
+    --color-neutral-50: #fafafa;       /* Cinza ultra claro */
+    --color-white: #ffffff;            /* Branco puro */
+    
+    /* Cores de Feedback */
+    --color-success-900: #1e7e34;      /* Verde escuro */
+    --color-success-700: #27ae60;      /* Verde principal */
+    --color-success-500: #2ecc71;      /* Verde médio */
+    --color-success-300: #58d68d;      /* Verde claro */
+    --color-success-100: #d5f4e6;      /* Verde muito claro */
+    
+    --color-error-900: #c0392b;        /* Vermelho escuro */
+    --color-error-700: #e74c3c;        /* Vermelho principal */
+    --color-error-500: #ec7063;        /* Vermelho médio */
+    --color-error-300: #f1948a;        /* Vermelho claro */
+    --color-error-100: #fadbd8;        /* Vermelho muito claro */
+    
+    --color-warning-900: #d68910;      /* Amarelo escuro */
+    --color-warning-700: #f39c12;      /* Amarelo principal */
+    --color-warning-500: #f5b041;      /* Amarelo médio */
+    --color-warning-300: #f8c471;      /* Amarelo claro */
+    --color-warning-100: #fcf3cf;      /* Amarelo muito claro */
+    
+    --color-info-900: #1f618d;         /* Azul info escuro */
+    --color-info-700: #2980b9;         /* Azul info principal */
+    --color-info-500: #5dade2;         /* Azul info médio */
+    --color-info-300: #85c1e2;         /* Azul info claro */
+    --color-info-100: #d6eaf8;         /* Azul info muito claro */
+    
+    /* Cores Semânticas (Aliases) */
+    --color-text-primary: var(--color-neutral-900);
+    --color-text-secondary: var(--color-neutral-600);
+    --color-text-muted: var(--color-neutral-500);
+    --color-text-inverse: var(--color-white);
+    
+    --color-bg-primary: var(--color-white);
+    --color-bg-secondary: var(--color-neutral-50);
+    --color-bg-tertiary: var(--color-neutral-100);
+    --color-bg-dark: var(--color-neutral-900);
+    
+    --color-border-light: var(--color-neutral-200);
+    --color-border-medium: var(--color-neutral-300);
+    --color-border-dark: var(--color-neutral-400);
+    
+    /* ===================================
+       TIPOGRAFIA HIERÁRQUICA (5+ tamanhos)
+       =================================== */
+    
+    /* Famílias de Fonte */
+    --font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-family-secondary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-code: 'Courier New', 'Consolas', 'Monaco', monospace;
+    --font-family-heading: 'Segoe UI', 'Arial Black', sans-serif;
+    
+    /* Tamanhos de Fonte (Escala Modular - 1.250 Major Third) */
+    --font-size-xs: 0.64rem;      /* 10.24px */
+    --font-size-sm: 0.8rem;       /* 12.8px */
+    --font-size-base: 1rem;       /* 16px - base */
+    --font-size-md: 1.25rem;      /* 20px */
+    --font-size-lg: 1.563rem;     /* 25px */
+    --font-size-xl: 1.953rem;     /* 31.25px */
+    --font-size-2xl: 2.441rem;    /* 39px */
+    --font-size-3xl: 3.052rem;    /* 48.83px */
+    --font-size-4xl: 3.815rem;    /* 61.04px */
+    
+    /* Pesos de Fonte */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    
+    /* Altura de Linha */
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+    --line-height-loose: 2;
+    
+    /* Espaçamento de Letras */
+    --letter-spacing-tight: -0.05em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.05em;
+    --letter-spacing-wider: 0.1em;
+    
+    /* ===================================
+       SISTEMA DE ESPAÇAMENTO MODULAR
+       Base: 8px (0.5rem)
+       =================================== */
+    
+    --spacing-0: 0;
+    --spacing-1: 0.5rem;      /* 8px */
+    --spacing-2: 1rem;        /* 16px */
+    --spacing-3: 1.5rem;      /* 24px */
+    --spacing-4: 2rem;        /* 32px */
+    --spacing-5: 2.5rem;      /* 40px */
+    --spacing-6: 3rem;        /* 48px */
+    --spacing-7: 3.5rem;      /* 56px */
+    --spacing-8: 4rem;        /* 64px */
+    --spacing-9: 4.5rem;      /* 72px */
+    --spacing-10: 5rem;       /* 80px */
+    --spacing-12: 6rem;       /* 96px */
+    --spacing-16: 8rem;       /* 128px */
+    --spacing-20: 10rem;      /* 160px */
+    
+    /* Aliases Semânticos */
+    --spacing-xs: var(--spacing-1);
+    --spacing-sm: var(--spacing-2);
+    --spacing-md: var(--spacing-4);
+    --spacing-lg: var(--spacing-6);
+    --spacing-xl: var(--spacing-8);
+    --spacing-2xl: var(--spacing-12);
+    
+    /* ===================================
+       BORDAS E RAIOS
+       =================================== */
+    
+    --border-width-thin: 1px;
+    --border-width-medium: 2px;
+    --border-width-thick: 4px;
+    
+    --border-radius-none: 0;
+    --border-radius-sm: 0.25rem;    /* 4px */
+    --border-radius-md: 0.5rem;     /* 8px */
+    --border-radius-lg: 0.75rem;    /* 12px */
+    --border-radius-xl: 1rem;       /* 16px */
+    --border-radius-2xl: 1.5rem;    /* 24px */
+    --border-radius-full: 9999px;   /* Circular */
+    
+    /* ===================================
+       SOMBRAS
+       =================================== */
+    
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    
+    /* ===================================
+       TRANSIÇÕES E ANIMAÇÕES
+       =================================== */
+    
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 250ms ease-in-out;
+    --transition-slow: 350ms ease-in-out;
+    --transition-slower: 500ms ease-in-out;
+    
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* ===================================
+       Z-INDEX (Camadas)
+       =================================== */
+    
+    --z-index-dropdown: 1000;
+    --z-index-sticky: 1020;
+    --z-index-fixed: 1030;
+    --z-index-modal-backdrop: 1040;
+    --z-index-modal: 1050;
+    --z-index-popover: 1060;
+    --z-index-tooltip: 1070;
+    
+    /* ===================================
+       BREAKPOINTS (para uso em JS)
+       =================================== */
+    
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-2xl: 1400px;
+    
+    /* ===================================
+       GRID SYSTEM (12 colunas)
+       =================================== */
+    
+    --grid-columns: 12;
+    --grid-gutter: var(--spacing-4);    /* 32px */
+    --container-max-width: 1200px;
+    
+    /* ===================================
+       OPACIDADES
+       =================================== */
+    
+    --opacity-0: 0;
+    --opacity-10: 0.1;
+    --opacity-20: 0.2;
+    --opacity-30: 0.3;
+    --opacity-40: 0.4;
+    --opacity-50: 0.5;
+    --opacity-60: 0.6;
+    --opacity-70: 0.7;
+    --opacity-80: 0.8;
+    --opacity-90: 0.9;
+    --opacity-100: 1;
+}
+

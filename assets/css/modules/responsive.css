@@ -1,0 +1,400 @@
+/* ===================================
+   RESPONSIVIDADE
+   5+ Breakpoints e Media Queries
+   =================================== */
+
+/* ===================================
+   BREAKPOINTS DEFINIDOS:
+   - xs: 0px (mobile small)
+   - sm: 576px (mobile large)
+   - md: 768px (tablet)
+   - lg: 992px (desktop small)
+   - xl: 1200px (desktop large)
+   - 2xl: 1400px (desktop extra large)
+   =================================== */
+
+/* ===================================
+   MOBILE FIRST - BASE (XS: 0px+)
+   =================================== */
+
+/* Navegação Mobile */
+@media (max-width: 767px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background-color: var(--color-neutral-900);
+        flex-direction: column;
+        padding: var(--spacing-8) var(--spacing-4);
+        gap: var(--spacing-2);
+        transition: right var(--transition-base);
+        box-shadow: var(--shadow-2xl);
+        overflow-y: auto;
+        z-index: var(--z-index-fixed);
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu a {
+        width: 100%;
+        padding: var(--spacing-3);
+    }
+
+    /* Dropdown no mobile */
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background-color: rgba(255, 255, 255, 0.1);
+        margin-top: var(--spacing-2);
+        display: none;
+    }
+
+    .nav-item-dropdown.active .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu a {
+        color: var(--color-white);
+    }
+
+    .dropdown-menu a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Grid responsivo */
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Layout com sidebar */
+    .layout-sidebar,
+    .layout-sidebar-right {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-layout {
+        grid-template-areas:
+            "header"
+            "main"
+            "sidebar";
+        grid-template-columns: 1fr;
+    }
+
+    /* Masonry */
+    .masonry-grid {
+        column-count: 1;
+    }
+
+    /* Tipografia responsiva */
+    h1 {
+        font-size: var(--font-size-2xl);
+    }
+
+    h2 {
+        font-size: var(--font-size-xl);
+    }
+
+    h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    /* Espaçamentos reduzidos */
+    .section {
+        padding: var(--spacing-6) 0;
+    }
+
+    .section-lg {
+        padding: var(--spacing-8) 0;
+    }
+
+    /* Modal full screen em mobile */
+    .modal-content {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        max-height: 100%;
+        border-radius: 0;
+    }
+
+    /* Card horizontal vira vertical */
+    .card-horizontal {
+        flex-direction: column;
+    }
+
+    .card-horizontal .card-img {
+        width: 100%;
+        height: 200px;
+    }
+
+    /* Tabelas responsivas */
+    .table-responsive {
+        overflow-x: auto;
+    }
+}
+
+/* ===================================
+   SM: 576px+ (Mobile Large)
+   =================================== */
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+
+    /* Grid 2 colunas */
+    .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    /* Masonry 2 colunas */
+    .masonry-grid {
+        column-count: 2;
+    }
+
+    /* Utilitários responsivos SM */
+    .sm\:block { display: block; }
+    .sm\:flex { display: flex; }
+    .sm\:grid { display: grid; }
+    .sm\:hidden { display: none; }
+
+    .sm\:col-6 { grid-column: span 6; }
+    .sm\:col-12 { grid-column: span 12; }
+}
+
+/* ===================================
+   MD: 768px+ (Tablet)
+   =================================== */
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+
+    /* Navegação desktop */
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-menu {
+        position: static;
+        width: auto;
+        height: auto;
+        flex-direction: row;
+        padding: 0;
+        background: none;
+        box-shadow: none;
+    }
+
+    /* Grid 3 colunas */
+    .grid-cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Layout com sidebar */
+    .layout-sidebar {
+        grid-template-columns: 250px 1fr;
+    }
+
+    .layout-sidebar-right {
+        grid-template-columns: 1fr 250px;
+    }
+
+    /* Masonry 3 colunas */
+    .masonry-grid {
+        column-count: 3;
+    }
+
+    /* Modal tamanho médio */
+    .modal-content {
+        max-width: 600px;
+        width: 90%;
+        max-height: 90vh;
+        border-radius: var(--border-radius-lg);
+    }
+
+    /* Utilitários responsivos MD */
+    .md\:block { display: block; }
+    .md\:flex { display: flex; }
+    .md\:grid { display: grid; }
+    .md\:hidden { display: none; }
+
+    .md\:col-3 { grid-column: span 3; }
+    .md\:col-4 { grid-column: span 4; }
+    .md\:col-6 { grid-column: span 6; }
+    .md\:col-8 { grid-column: span 8; }
+    .md\:col-9 { grid-column: span 9; }
+    .md\:col-12 { grid-column: span 12; }
+
+    .md\:flex-row { flex-direction: row; }
+    .md\:justify-between { justify-content: space-between; }
+}
+
+/* ===================================
+   LG: 992px+ (Desktop Small)
+   =================================== */
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+
+    /* Grid 4 colunas */
+    .grid-cols-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Dashboard layout */
+    .dashboard-layout {
+        grid-template-areas:
+            "sidebar header"
+            "sidebar main";
+        grid-template-columns: 250px 1fr;
+    }
+
+    /* Utilitários responsivos LG */
+    .lg\:block { display: block; }
+    .lg\:flex { display: flex; }
+    .lg\:grid { display: grid; }
+    .lg\:hidden { display: none; }
+
+    .lg\:col-2 { grid-column: span 2; }
+    .lg\:col-3 { grid-column: span 3; }
+    .lg\:col-4 { grid-column: span 4; }
+    .lg\:col-6 { grid-column: span 6; }
+    .lg\:col-8 { grid-column: span 8; }
+    .lg\:col-9 { grid-column: span 9; }
+    .lg\:col-10 { grid-column: span 10; }
+
+    .lg\:flex-row { flex-direction: row; }
+    .lg\:gap-6 { gap: var(--spacing-6); }
+}
+
+/* ===================================
+   XL: 1200px+ (Desktop Large)
+   =================================== */
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    /* Tipografia maior em telas grandes */
+    h1 {
+        font-size: var(--font-size-4xl);
+    }
+
+    /* Modal grande */
+    .modal-content {
+        max-width: 800px;
+    }
+
+    /* Utilitários responsivos XL */
+    .xl\:block { display: block; }
+    .xl\:flex { display: flex; }
+    .xl\:grid { display: grid; }
+    .xl\:hidden { display: none; }
+
+    .xl\:col-2 { grid-column: span 2; }
+    .xl\:col-3 { grid-column: span 3; }
+    .xl\:col-4 { grid-column: span 4; }
+    .xl\:col-6 { grid-column: span 6; }
+    .xl\:col-8 { grid-column: span 8; }
+
+    .xl\:gap-8 { gap: var(--spacing-8); }
+}
+
+/* ===================================
+   2XL: 1400px+ (Desktop Extra Large)
+   =================================== */
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+
+    .container-wide {
+        max-width: 1600px;
+    }
+
+    /* Utilitários responsivos 2XL */
+    .xxl\:block { display: block; }
+    .xxl\:flex { display: flex; }
+    .xxl\:grid { display: grid; }
+    .xxl\:hidden { display: none; }
+
+    .xxl\:col-2 { grid-column: span 2; }
+    .xxl\:col-3 { grid-column: span 3; }
+    .xxl\:col-4 { grid-column: span 4; }
+}
+
+/* ===================================
+   UTILITÁRIOS DE VISIBILIDADE
+   =================================== */
+
+/* Mostrar apenas em mobile */
+.show-mobile {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .show-mobile {
+        display: none;
+    }
+}
+
+/* Esconder em mobile */
+.hide-mobile {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .hide-mobile {
+        display: block;
+    }
+}
+
+/* Mostrar apenas em tablet */
+.show-tablet {
+    display: none;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .show-tablet {
+        display: block;
+    }
+}
+
+/* Mostrar apenas em desktop */
+.show-desktop {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .show-desktop {
+        display: block;
+    }
+}
+

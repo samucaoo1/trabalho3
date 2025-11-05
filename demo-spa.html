@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo SPA - C Legacy Foundation</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <style>
+        .spa-nav {
+            background: var(--white);
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .spa-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+        
+        .spa-nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .spa-nav a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        #spa-content {
+            min-height: 400px;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .demo-section {
+            margin-bottom: 2rem;
+        }
+        
+        .demo-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <span>&lt;</span>C Legacy<span>&gt;</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Voltar ao Site</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">
+            🚀 Demonstração SPA & Templates
+        </h1>
+
+        <!-- Navegação SPA -->
+        <nav class="spa-nav">
+            <ul>
+                <li><a href="#/" data-spa-link>Início</a></li>
+                <li><a href="#/projetos" data-spa-link>Projetos</a></li>
+                <li><a href="#/voluntarios" data-spa-link>Voluntários</a></li>
+                <li><a href="#/componentes" data-spa-link>Componentes</a></li>
+            </ul>
+        </nav>
+
+        <!-- Container de Conteúdo SPA -->
+        <div id="spa-content">
+            <p>Carregando...</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="margin-top: 3rem;">
+        <div class="footer-bottom">
+            <p>&copy; 2025 C Legacy Foundation - Demonstração SPA</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/templates.js"></script>
+    <script src="assets/js/spa.js"></script>
+    <script src="assets/js/form-validator.js"></script>
+    <script src="assets/js/navigation.js"></script>
+    
+    <script>
+        // Registrar rotas do SPA
+        spa.register('/', () => {
+            return `
+                <div class="demo-section">
+                    <h2>Bem-vindo à Demonstração SPA</h2>
+                    <p>Esta é uma demonstração do sistema Single Page Application implementado com JavaScript puro.</p>
+                    
+                    <div class="info-box highlight">
+                        <h3>✨ Funcionalidades Implementadas</h3>
+                        <ul>
+                            <li><strong>SPA (Single Page Application):</strong> Navegação sem recarregar a página</li>
+                            <li><strong>Sistema de Templates:</strong> Renderização dinâmica de componentes</li>
+                            <li><strong>Validação Avançada:</strong> Verificação em tempo real com mensagens personalizadas</li>
+                            <li><strong>Gerenciamento de Estado:</strong> LocalStorage para persistência de dados</li>
+                            <li><strong>Componentes Reutilizáveis:</strong> Cards, modais, toasts, badges</li>
+                        </ul>
+                    </div>
+
+                    <div class="demo-section">
+                        <h3>🎯 Teste as Funcionalidades</h3>
+                        <div class="button-group">
+                            <button class="btn" onclick="testarToast()">Testar Toast</button>
+                            <button class="btn btn-secondary" onclick="testarModal()">Testar Modal</button>
+                            <button class="btn" onclick="spa.navigateTo('/projetos')">Ver Projetos</button>
+                            <button class="btn" onclick="spa.navigateTo('/voluntarios')">Ver Voluntários</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        spa.register('/projetos', () => {
+            const projetos = getProjetos();
+            const html = templateEngine.renderList('projectCard', projetos);
+            
+            return `
+                <div class="demo-section">
+                    <h2>📚 Projetos (Renderizados com Templates)</h2>
+                    <p>Estes cards são gerados dinamicamente usando o sistema de templates JavaScript.</p>
+                    <div class="cards-grid" style="margin-top: 2rem;">
+                        ${html}
+                    </div>
+                </div>
+            `;
+        });
+
+        spa.register('/voluntarios', () => {
+            const voluntarios = getVoluntarios();
+            const html = templateEngine.renderList('voluntarioCard', voluntarios);
+            
+            return `
+                <div class="demo-section">
+                    <h2>👥 Voluntários (Renderizados com Templates)</h2>
+                    <p>Lista de voluntários cadastrados no sistema.</p>
+                    <div class="cards-grid" style="margin-top: 2rem;">
+                        ${html}
+                    </div>
+                </div>
+            `;
+        });
+
+        spa.register('/componentes', () => {
+            return `
+                <div class="demo-section">
+                    <h2>🎨 Componentes Disponíveis</h2>
+                    
+                    <div class="demo-section">
+                        <h3>Badges</h3>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            ${templateEngine.renderComponent('badge', { text: 'Primary', type: 'primary' })}
+                            ${templateEngine.renderComponent('badge', { text: 'Success', type: 'success' })}
+                            ${templateEngine.renderComponent('badge', { text: 'Danger', type: 'danger' })}
+                            ${templateEngine.renderComponent('badge', { text: 'Warning', type: 'warning' })}
+                            ${templateEngine.renderComponent('badge', { text: 'Info', type: 'info' })}
+                        </div>
+                    </div>
+
+                    <div class="demo-section">
+                        <h3>Botões</h3>
+                        <div class="button-group">
+                            ${templateEngine.renderComponent('button', { text: 'Botão Padrão' })}
+                            ${templateEngine.renderComponent('button', { text: 'Secundário', variant: 'secondary' })}
+                            ${templateEngine.renderComponent('button', { text: 'Pequeno', size: 'sm' })}
+                            ${templateEngine.renderComponent('button', { text: 'Com Ícone', icon: '🚀' })}
+                        </div>
+                    </div>
+
+                    <div class="demo-section">
+                        <h3>Loading Spinner</h3>
+                        ${templateEngine.renderComponent('loadingSpinner', { text: 'Carregando...', size: 'small' })}
+                    </div>
+
+                    <div class="demo-section">
+                        <h3>Alertas</h3>
+                        ${templateEngine.render('alert', { 
+                            type: 'success', 
+                            message: 'Operação realizada com sucesso!',
+                            dismissible: true 
+                        })}
+                        ${templateEngine.render('alert', { 
+                            type: 'error', 
+                            message: 'Ocorreu um erro ao processar sua solicitação.',
+                            dismissible: true 
+                        })}
+                        ${templateEngine.render('alert', { 
+                            type: 'warning', 
+                            title: 'Atenção!',
+                            message: 'Esta ação não pode ser desfeita.',
+                            dismissible: true 
+                        })}
+                    </div>
+
+                    <div class="demo-section">
+                        <h3>Estatísticas</h3>
+                        <div class="stats-container">
+                            ${templateEngine.render('statBox', { icon: '👥', value: '300+', label: 'Voluntários' })}
+                            ${templateEngine.render('statBox', { icon: '📚', value: '150+', label: 'Projetos' })}
+                            ${templateEngine.render('statBox', { icon: '🎓', value: '5.000+', label: 'Capacitados' })}
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        spa.register('/404', () => {
+            return `
+                <div class="demo-section" style="text-align: center; padding: 3rem;">
+                    <h2>404 - Página Não Encontrada</h2>
+                    <p>A rota solicitada não existe.</p>
+                    <button class="btn" onclick="spa.navigateTo('/')">Voltar ao Início</button>
+                </div>
+            `;
+        });
+
+        // Funções de teste
+        function testarToast() {
+            showToast(
+                'Teste de Toast',
+                'Esta é uma notificação toast de exemplo!',
+                'success',
+                5000
+            );
+        }
+
+        function testarModal() {
+            const modalContent = `
+                <p>Este é um modal de exemplo criado dinamicamente.</p>
+                <p>Você pode fechar clicando no X, no backdrop ou pressionando ESC.</p>
+            `;
+
+            const modal = templateEngine.render('modal', {
+                id: 'modal-teste',
+                title: 'Modal de Teste',
+                content: modalContent,
+                active: true,
+                footer: '<button class="btn" onclick="closeModal(\'modal-teste\')">Fechar</button>'
+            });
+
+            const modalDiv = document.createElement('div');
+            modalDiv.innerHTML = modal;
+            document.body.appendChild(modalDiv.firstElementChild);
+        }
+    </script>
+</body>
+</html>
+

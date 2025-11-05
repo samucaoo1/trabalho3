@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça os projetos sociais da C Legacy Foundation. Voluntariado, doações e oportunidades de fazer a diferença através da tecnologia.">
+    <meta name="keywords" content="projetos sociais, voluntariado, doações, linguagem C, educação tecnológica">
+    <meta name="author" content="C Legacy Foundation">
+    <title>Projetos Sociais - C Legacy Foundation</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+    <!-- Header e Navegação -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <span>&lt;</span>C Legacy<span>&gt;</span>
+            </div>
+
+            <!-- Menu Hambúrguer (Mobile) -->
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="projetos.html" class="active">Projetos</a></li>
+                <li><a href="cadastro.html">Cadastre-se</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+                <li><a href="login.html" class="nav-cta">🔐 Área Restrita</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner Hero -->
+    <section class="hero-banner">
+        <img src="assets/images/banner.svg" alt="Projetos da C Legacy Foundation">
+        <div class="hero-content">
+            <h1>Nossos Projetos Sociais</h1>
+            <p>Transformando vidas através da educação em programação</p>
+            <a href="#voluntariado" class="btn">Seja Voluntário</a>
+            <a href="#doacoes" class="btn btn-secondary">Faça uma Doação</a>
+        </div>
+    </section>
+
+    <!-- Projetos Ativos -->
+    <main class="container">
+        <section class="section">
+            <h2 class="section-title">Projetos em Andamento</h2>
+
+            <!-- Container dinâmico para projetos -->
+            <div id="projetosContainer" class="cards-grid">
+                <!-- Projetos serão carregados dinamicamente via JavaScript -->
+            </div>
+
+            <div id="semProjetos" style="display: none; text-align: center; padding: 3rem;">
+                <p style="font-size: 1.2rem; color: #666;">📂 Nenhum projeto cadastrado no momento.</p>
+                <p>Novos projetos serão adicionados em breve!</p>
+            </div>
+        </section>
+
+        <!-- Indicadores de Impacto -->
+        <section class="section">
+            <h2 class="section-title">Resultados e Impacto</h2>
+            
+            <div class="stats-container">
+                <div class="stat-box">
+                    <span class="number">5.247</span>
+                    <span class="label">Pessoas Capacitadas</span>
+                </div>
+                <div class="stat-box">
+                    <span class="number">156</span>
+                    <span class="label">Projetos Concluídos</span>
+                </div>
+                <div class="stat-box">
+                    <span class="number">85%</span>
+                    <span class="label">Taxa de Empregabilidade</span>
+                </div>
+                <div class="stat-box">
+                    <span class="number">R$ 2.5M</span>
+                    <span class="label">Investimento Social</span>
+                </div>
+            </div>
+
+            <div class="info-box mt-2">
+                <h3>📊 Transparência Total</h3>
+                <p>Todos os nossos projetos são acompanhados por indicadores de impacto mensuráveis. Publicamos relatórios trimestrais detalhando a aplicação de recursos, número de beneficiados e resultados alcançados.</p>
+                <a href="#" class="btn mt-1">Ver Relatórios Completos</a>
+            </div>
+        </section>
+
+        <!-- Voluntariado -->
+        <section class="section" id="voluntariado">
+            <h2 class="section-title">Oportunidades de Voluntariado</h2>
+            
+            <div class="info-box highlight">
+                <h3>🤝 Faça Parte da Nossa Equipe</h3>
+                <p>Temos diversas oportunidades para você contribuir com seu tempo e conhecimento:</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>👨‍🏫 Instrutor de Programação</h3>
+                    <p><strong>Requisitos:</strong> Conhecimento em C, disponibilidade de 4h/semana</p>
+                    <p><strong>Atividades:</strong> Ministrar aulas, criar material didático, tirar dúvidas</p>
+                    <p><strong>Vagas:</strong> 15 vagas abertas</p>
+                    <a href="cadastro.html" class="btn mt-1">Candidatar-se</a>
+                </div>
+
+                <div class="card">
+                    <h3>💼 Mentor de Carreira</h3>
+                    <p><strong>Requisitos:</strong> 3+ anos de experiência profissional</p>
+                    <p><strong>Atividades:</strong> Orientação profissional, revisão de código, networking</p>
+                    <p><strong>Vagas:</strong> Sempre abertas</p>
+                    <a href="cadastro.html" class="btn mt-1">Candidatar-se</a>
+                </div>
+
+                <div class="card">
+                    <h3>🎨 Designer Gráfico</h3>
+                    <p><strong>Requisitos:</strong> Experiência em design digital</p>
+                    <p><strong>Atividades:</strong> Criar materiais visuais, apresentações, infográficos</p>
+                    <p><strong>Vagas:</strong> 3 vagas abertas</p>
+                    <a href="cadastro.html" class="btn mt-1">Candidatar-se</a>
+                </div>
+
+                <div class="card">
+                    <h3>📝 Criador de Conteúdo</h3>
+                    <p><strong>Requisitos:</strong> Boa escrita, conhecimento técnico</p>
+                    <p><strong>Atividades:</strong> Escrever artigos, tutoriais, documentação</p>
+                    <p><strong>Vagas:</strong> 5 vagas abertas</p>
+                    <a href="cadastro.html" class="btn mt-1">Candidatar-se</a>
+                </div>
+
+                <div class="card">
+                    <h3>🔧 Suporte Técnico</h3>
+                    <p><strong>Requisitos:</strong> Conhecimento em hardware e software</p>
+                    <p><strong>Atividades:</strong> Manutenção de laboratórios, suporte aos alunos</p>
+                    <p><strong>Vagas:</strong> 8 vagas abertas</p>
+                    <a href="cadastro.html" class="btn mt-1">Candidatar-se</a>
+                </div>
+
+                <div class="card">
+                    <h3>📢 Comunicação e Marketing</h3>
+                    <p><strong>Requisitos:</strong> Experiência em mídias sociais</p>
+                    <p><strong>Atividades:</strong> Gerenciar redes sociais, divulgar projetos</p>
+                    <p><strong>Vagas:</strong> 4 vagas abertas</p>
+                    <a href="cadastro.html" class="btn mt-1">Candidatar-se</a>
+                </div>
+            </div>
+
+            <div class="info-box mt-2">
+                <h3>✨ Benefícios de Ser Voluntário</h3>
+                <ul>
+                    <li>Certificado digital de participação</li>
+                    <li>Networking com profissionais da área</li>
+                    <li>Acesso gratuito a todos os nossos cursos</li>
+                    <li>Participação em eventos exclusivos</li>
+                    <li>Desenvolvimento de habilidades de liderança</li>
+                    <li>Satisfação de fazer a diferença na vida de pessoas</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Doações -->
+        <section class="section" id="doacoes">
+            <h2 class="section-title">Como Doar</h2>
+            
+            <div class="info-box highlight">
+                <h3>💰 Sua Doação Transforma Vidas</h3>
+                <p>Com sua contribuição, podemos expandir nossos projetos e alcançar ainda mais pessoas. Toda doação é bem-vinda e faz diferença!</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>💳 Doação Única</h3>
+                    <p>Faça uma contribuição pontual via PIX, cartão de crédito ou transferência bancária.</p>
+                    <p><strong>PIX:</strong> <span class="code-text">doacoes@clegacy.org</span></p>
+                    <a href="#" class="btn mt-1">Doar Agora</a>
+                </div>
+
+                <div class="card">
+                    <h3>🔄 Doação Recorrente</h3>
+                    <p>Torne-se um apoiador mensal e ajude a garantir a continuidade dos nossos projetos.</p>
+                    <p><strong>A partir de:</strong> R$ 20/mês</p>
+                    <a href="#" class="btn mt-1">Ser Apoiador</a>
+                </div>
+
+                <div class="card">
+                    <h3>🏢 Doação Empresarial</h3>
+                    <p>Empresas podem apoiar através de patrocínio, doação de equipamentos ou parcerias estratégicas.</p>
+                    <p><strong>Benefícios fiscais disponíveis</strong></p>
+                    <a href="index.html#contato" class="btn mt-1">Fale Conosco</a>
+                </div>
+
+                <div class="card">
+                    <h3>💻 Doação de Equipamentos</h3>
+                    <p>Aceita doações de computadores, notebooks e equipamentos de informática em bom estado.</p>
+                    <p><strong>Emitimos recibo para dedução fiscal</strong></p>
+                    <a href="index.html#contato" class="btn mt-1">Agendar Doação</a>
+                </div>
+            </div>
+
+            <div class="info-box mt-2">
+                <h3>📋 Transparência nas Doações</h3>
+                <p>Veja como utilizamos os recursos doados:</p>
+                <ul>
+                    <li><strong>60%</strong> - Programas educacionais e cursos</li>
+                    <li><strong>20%</strong> - Infraestrutura e equipamentos</li>
+                    <li><strong>10%</strong> - Pesquisa e desenvolvimento</li>
+                    <li><strong>10%</strong> - Administração e gestão</li>
+                </ul>
+                <p class="mt-1">Todos os doadores recebem relatórios trimestrais detalhando a aplicação dos recursos.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>C Legacy Foundation</h3>
+                <p>Preservando o legado da linguagem C e transformando vidas através da educação tecnológica.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Twitter">t</a>
+                    <a href="#" aria-label="LinkedIn">in</a>
+                    <a href="#" aria-label="GitHub">gh</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="cadastro.html">Cadastre-se</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Transparência</h3>
+                <ul>
+                    <li><a href="#">Relatórios Anuais</a></li>
+                    <li><a href="#">Prestação de Contas</a></li>
+                    <li><a href="#">Estatuto Social</a></li>
+                    <li><a href="#">Certificações</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Receba novidades sobre nossos projetos e cursos.</p>
+                <form style="margin-top: 1rem;">
+                    <input type="email" placeholder="Seu email" style="width: 100%; padding: 0.5rem; border-radius: 4px; border: none; margin-bottom: 0.5rem;">
+                    <button type="submit" class="btn" style="width: 100%;">Inscrever</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 C Legacy Foundation. Todos os direitos reservados.</p>
+            <p>CNPJ: 12.345.678/0001-90 | Utilidade Pública Federal</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Carregar projetos dinamicamente do localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            carregarProjetosDinamicos();
+        });
+
+        function carregarProjetosDinamicos() {
+            const container = document.getElementById('projetosContainer');
+            const semProjetos = document.getElementById('semProjetos');
+
+            // Obter projetos do localStorage
+            const projetos = getProjetos();
+
+            // Filtrar apenas projetos ativos
+            const projetosAtivos = projetos.filter(p => p.status === 'ativo');
+
+            if (projetosAtivos.length === 0) {
+                container.style.display = 'none';
+                semProjetos.style.display = 'block';
+                return;
+            }
+
+            // Limpar container
+            container.innerHTML = '';
+
+            // Mapear ícones por categoria
+            const icones = {
+                'Educação': '💻',
+                'Capacitação Profissional': '🎓',
+                'Educação Básica': '🏫',
+                'Infraestrutura': '🔧',
+                'Preservação de Conhecimento': '📚',
+                'Desenvolvimento de Carreira': '👥',
+                'Diversidade e Inclusão': '🌟',
+                'Competição e Inovação': '🏆',
+                'Pesquisa e Desenvolvimento': '🔬'
+            };
+
+            // Renderizar cada projeto
+            projetosAtivos.forEach(projeto => {
+                const icone = icones[projeto.categoria] || '📁';
+                const percentual = projeto.metaFinanceira > 0
+                    ? ((projeto.arrecadado / projeto.metaFinanceira) * 100).toFixed(0)
+                    : 0;
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <h3>${icone} ${projeto.titulo}</h3>
+                    <p><strong>Categoria:</strong> ${projeto.categoria}</p>
+                    <p>${projeto.descricao}</p>
+                    ${projeto.impacto ? `<p><strong>Impacto:</strong> ${projeto.impacto}</p>` : ''}
+                    ${projeto.beneficiados > 0 ? `<p><strong>Beneficiados:</strong> ${projeto.beneficiados.toLocaleString('pt-BR')} pessoas</p>` : ''}
+                    ${projeto.voluntarios > 0 ? `<p><strong>Voluntários:</strong> ${projeto.voluntarios}</p>` : ''}
+                    ${projeto.metaFinanceira > 0 ? `
+                        <p><strong>Meta Financeira:</strong> ${formatarMoeda(projeto.metaFinanceira)}</p>
+                        <p><strong>Arrecadado:</strong> ${formatarMoeda(projeto.arrecadado)} (${percentual}%)</p>
+                        <div style="background: #e0e0e0; border-radius: 10px; height: 10px; margin: 0.5rem 0;">
+                            <div style="background: var(--primary-color); height: 100%; border-radius: 10px; width: ${percentual}%;"></div>
+                        </div>
+                    ` : ''}
+                    <p><strong>Status:</strong> <span class="highlight-text">Ativo</span></p>
+                    <a href="cadastro.html" class="btn mt-1">Participar</a>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
+

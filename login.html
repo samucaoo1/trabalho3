@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Área restrita da C Legacy Foundation. Acesso para voluntários e administradores.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Login - Área Restrita | C Legacy Foundation</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: var(--spacing-md);
+        }
+        
+        .login-box {
+            background: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 450px;
+            width: 100%;
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .login-header h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: var(--spacing-xs);
+            font-family: var(--font-code);
+        }
+        
+        .login-header p {
+            color: var(--text-color);
+            font-size: 0.95rem;
+        }
+        
+        .alert {
+            padding: var(--spacing-sm);
+            border-radius: 5px;
+            margin-bottom: var(--spacing-md);
+            display: none;
+        }
+        
+        .alert.error {
+            background-color: #fee;
+            border: 1px solid var(--error-color);
+            color: var(--error-color);
+        }
+        
+        .alert.success {
+            background-color: #efe;
+            border: 1px solid var(--success-color);
+            color: var(--success-color);
+        }
+        
+        .credentials-info {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: var(--spacing-sm);
+            border-radius: 5px;
+            margin-bottom: var(--spacing-md);
+            font-size: 0.9rem;
+        }
+        
+        .credentials-info h4 {
+            margin-bottom: var(--spacing-xs);
+            color: #856404;
+        }
+        
+        .credentials-info code {
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: var(--font-code);
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: var(--spacing-md);
+        }
+        
+        .back-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>&lt;C Legacy&gt;</h1>
+                <p>Área Restrita - Sistema de Gestão</p>
+            </div>
+            
+            <div id="alertBox" class="alert"></div>
+            
+            <!-- Informações de credenciais para teste -->
+            <div class="credentials-info">
+                <h4>🔑 Credenciais para Teste:</h4>
+                <p><strong>Administrador:</strong><br>
+                Email: <code>admin@clegacy.org</code><br>
+                Senha: <code>admin123</code></p>
+                <p style="margin-top: 0.5rem;"><strong>Voluntário:</strong><br>
+                Email: <code>joao.oliveira@email.com</code><br>
+                Senha: <code>voluntario123</code></p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required
+                        placeholder="seu@email.com"
+                        autocomplete="email"
+                        autofocus
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input 
+                        type="password" 
+                        id="senha" 
+                        name="senha" 
+                        required
+                        placeholder="Digite sua senha"
+                        autocomplete="current-password"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal;">
+                        <input type="checkbox" id="lembrar" name="lembrar">
+                        <span>Lembrar-me neste dispositivo</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%; margin-top: var(--spacing-sm);">
+                    Entrar
+                </button>
+            </form>
+            
+            <div class="back-link">
+                <a href="index.html">← Voltar para o site</a>
+            </div>
+            
+            <div style="margin-top: var(--spacing-md); padding-top: var(--spacing-md); border-top: 1px solid var(--border-color); text-align: center; font-size: 0.85rem; color: #666;">
+                <p>Esqueceu sua senha? <a href="#" style="color: var(--primary-color);">Recuperar senha</a></p>
+                <p style="margin-top: 0.5rem;">Não tem uma conta? <a href="cadastro.html" style="color: var(--primary-color);">Cadastre-se</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="assets/js/auth.js"></script>
+    <script>
+        // Verificar se já está logado
+        if (isAuthenticated()) {
+            const sessao = getSessao();
+            if (sessao.tipo === 'admin') {
+                window.location.href = 'admin.html';
+            } else {
+                window.location.href = 'voluntario.html';
+            }
+        }
+        
+        // Processar login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+            const alertBox = document.getElementById('alertBox');
+            
+            const resultado = login(email, senha);
+            
+            if (resultado.success) {
+                alertBox.className = 'alert success';
+                alertBox.textContent = 'Login realizado com sucesso! Redirecionando...';
+                alertBox.style.display = 'block';
+                
+                setTimeout(() => {
+                    if (resultado.usuario.tipo === 'admin') {
+                        window.location.href = 'admin.html';
+                    } else {
+                        window.location.href = 'voluntario.html';
+                    }
+                }, 1000);
+            } else {
+                alertBox.className = 'alert error';
+                alertBox.textContent = resultado.message;
+                alertBox.style.display = 'block';
+                
+                // Limpar senha
+                document.getElementById('senha').value = '';
+                document.getElementById('senha').focus();
+            }
+        });
+        
+        // Limpar alerta ao digitar
+        document.getElementById('email').addEventListener('input', function() {
+            document.getElementById('alertBox').style.display = 'none';
+        });
+        
+        document.getElementById('senha').addEventListener('input', function() {
+            document.getElementById('alertBox').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
+

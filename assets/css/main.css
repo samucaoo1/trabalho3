@@ -1,0 +1,352 @@
+/* ===================================
+   MAIN CSS - C LEGACY FOUNDATION
+   Sistema de Design Modular
+   =================================== */
+
+/* ===================================
+   IMPORTAÇÕES DOS MÓDULOS
+   Ordem de importação é importante!
+   =================================== */
+
+/* 1. Variáveis (Design System) */
+@import 'modules/variables.css';
+
+/* 2. Reset e Base */
+@import 'modules/reset.css';
+
+/* 3. Layout (Grid e Flexbox) */
+@import 'modules/layout.css';
+
+/* 4. Navegação */
+@import 'modules/navigation.css';
+
+/* 5. Componentes */
+@import 'modules/components.css';
+
+/* 6. Utilitários */
+@import 'modules/utilities.css';
+
+/* 7. Responsividade (sempre por último) */
+@import 'modules/responsive.css';
+
+/* ===================================
+   ESTILOS ESPECÍFICOS DO SITE
+   =================================== */
+
+/* Hero Banner */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 100%);
+    overflow: hidden;
+}
+
+.hero-banner img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: var(--opacity-20);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--color-white);
+    padding: var(--spacing-6);
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-4);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-6);
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content .btn {
+    margin: 0 var(--spacing-2);
+}
+
+/* Stats Container */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-4);
+    margin: var(--spacing-6) 0;
+}
+
+.stat-box {
+    background: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-500) 100%);
+    color: var(--color-white);
+    padding: var(--spacing-6);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--transition-base);
+}
+
+.stat-box:hover {
+    transform: translateY(-8px);
+}
+
+.stat-box .number {
+    display: block;
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-2);
+}
+
+.stat-box .label {
+    display: block;
+    font-size: var(--font-size-md);
+    opacity: var(--opacity-90);
+}
+
+/* Info Box */
+.info-box {
+    background-color: var(--color-neutral-50);
+    border-left: 4px solid var(--color-primary-700);
+    padding: var(--spacing-4);
+    border-radius: var(--border-radius-md);
+    margin: var(--spacing-4) 0;
+}
+
+.info-box.highlight {
+    background: linear-gradient(135deg, var(--color-primary-100) 0%, var(--color-white) 100%);
+    border-color: var(--color-secondary-700);
+}
+
+.info-box h3 {
+    color: var(--color-primary-700);
+    margin-bottom: var(--spacing-2);
+}
+
+.info-box ul {
+    margin-top: var(--spacing-2);
+}
+
+/* Section Title */
+.section-title {
+    font-size: var(--font-size-3xl);
+    color: var(--color-primary-900);
+    text-align: center;
+    margin-bottom: var(--spacing-6);
+    position: relative;
+    padding-bottom: var(--spacing-3);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary-700) 0%, var(--color-secondary-700) 100%);
+    border-radius: var(--border-radius-full);
+}
+
+/* Code Text */
+.code-text {
+    font-family: var(--font-family-code);
+    background-color: var(--color-neutral-100);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius-sm);
+    color: var(--color-primary-700);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Highlight Text */
+.highlight-text {
+    color: var(--color-secondary-700);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-neutral-900);
+    color: var(--color-white);
+    padding: var(--spacing-8) 0 var(--spacing-4);
+    margin-top: var(--spacing-12);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-6);
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-3);
+    margin-bottom: var(--spacing-6);
+}
+
+.footer-section h3 {
+    color: var(--color-primary-300);
+    margin-bottom: var(--spacing-3);
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: var(--spacing-2);
+}
+
+.footer-section a {
+    color: var(--color-neutral-300);
+    transition: color var(--transition-fast);
+}
+
+.footer-section a:hover {
+    color: var(--color-primary-300);
+    text-decoration: none;
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-3);
+    margin-top: var(--spacing-3);
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-neutral-800);
+    border-radius: var(--border-radius-full);
+    transition: all var(--transition-fast);
+}
+
+.social-links a:hover {
+    background-color: var(--color-primary-700);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-4);
+    border-top: var(--border-width-thin) solid var(--color-neutral-800);
+    color: var(--color-neutral-400);
+    font-size: var(--font-size-sm);
+}
+
+/* Dashboard Específico */
+.dashboard-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-4);
+    box-shadow: var(--shadow-md);
+}
+
+.dashboard-header {
+    background-color: var(--color-white);
+    border-bottom: var(--border-width-thin) solid var(--color-border-light);
+    padding: var(--spacing-4);
+}
+
+.profile-card {
+    background: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-900) 100%);
+    color: var(--color-white);
+    padding: var(--spacing-6);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    margin-bottom: var(--spacing-6);
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: var(--border-radius-full);
+    background-color: var(--color-white);
+    color: var(--color-primary-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    margin: 0 auto var(--spacing-3);
+}
+
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-4);
+    margin-top: var(--spacing-4);
+}
+
+.profile-stat {
+    text-align: center;
+}
+
+.profile-stat-value {
+    display: block;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.profile-stat-label {
+    display: block;
+    font-size: var(--font-size-sm);
+    opacity: var(--opacity-80);
+}
+
+/* Tabelas */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-white);
+}
+
+.table thead {
+    background-color: var(--color-neutral-100);
+}
+
+.table th {
+    padding: var(--spacing-3);
+    text-align: left;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    border-bottom: var(--border-width-medium) solid var(--color-border-medium);
+}
+
+.table td {
+    padding: var(--spacing-3);
+    border-bottom: var(--border-width-thin) solid var(--color-border-light);
+}
+
+.table tbody tr:hover {
+    background-color: var(--color-neutral-50);
+}
+
+/* Zona de Perigo */
+.danger-zone {
+    border: var(--border-width-medium) solid var(--color-error-700);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-4);
+    background-color: var(--color-error-100);
+    margin-top: var(--spacing-6);
+}
+
+.danger-zone h3 {
+    color: var(--color-error-900);
+    margin-bottom: var(--spacing-2);
+}
+
