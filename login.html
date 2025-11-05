@@ -7,6 +7,7 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Login - Área Restrita | C Legacy Foundation</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
     <style>
         .login-container {
             min-height: 100vh;
@@ -170,6 +171,8 @@
     </div>
     
     <script src="assets/js/auth.js"></script>
+    <script src="assets/js/form-validator.js"></script>
+    <script src="assets/js/navigation.js"></script>
     <script>
         // Verificar se já está logado
         if (isAuthenticated()) {
@@ -180,10 +183,32 @@
                 window.location.href = 'voluntario.html';
             }
         }
-        
+
+        // Configurar validação do formulário de login
+        const loginValidator = new FormValidator('#loginForm', {
+            realTime: true,
+            showErrors: true
+        });
+
+        loginValidator.addRules({
+            'email': [
+                { type: 'required', message: '⚠️ Email é obrigatório' },
+                { type: 'email', message: '⚠️ Email inválido' }
+            ],
+            'senha': [
+                { type: 'required', message: '⚠️ Senha é obrigatória' },
+                { type: 'minLength', length: 6, message: '⚠️ Senha deve ter no mínimo 6 caracteres' }
+            ]
+        });
+
         // Processar login
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
+
+            // Validar formulário antes de processar
+            if (!loginValidator.validateAll()) {
+                return;
+            }
             
             const email = document.getElementById('email').value;
             const senha = document.getElementById('senha').value;

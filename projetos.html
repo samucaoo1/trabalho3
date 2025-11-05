@@ -268,9 +268,10 @@
         </div>
     </footer>
 
-    <script src="assets/js/navigation.js"></script>
     <script src="assets/js/auth.js"></script>
     <script src="assets/js/api.js"></script>
+    <script src="assets/js/templates.js"></script>
+    <script src="assets/js/navigation.js"></script>
     <script src="assets/js/script.js"></script>
     <script>
         // Carregar projetos dinamicamente do localStorage
@@ -310,34 +311,31 @@
                 'Pesquisa e Desenvolvimento': '🔬'
             };
 
-            // Renderizar cada projeto
+            // Renderizar cada projeto usando templates
             projetosAtivos.forEach(projeto => {
                 const icone = icones[projeto.categoria] || '📁';
                 const percentual = projeto.metaFinanceira > 0
                     ? ((projeto.arrecadado / projeto.metaFinanceira) * 100).toFixed(0)
                     : 0;
 
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `
-                    <h3>${icone} ${projeto.titulo}</h3>
-                    <p><strong>Categoria:</strong> ${projeto.categoria}</p>
-                    <p>${projeto.descricao}</p>
-                    ${projeto.impacto ? `<p><strong>Impacto:</strong> ${projeto.impacto}</p>` : ''}
-                    ${projeto.beneficiados > 0 ? `<p><strong>Beneficiados:</strong> ${projeto.beneficiados.toLocaleString('pt-BR')} pessoas</p>` : ''}
-                    ${projeto.voluntarios > 0 ? `<p><strong>Voluntários:</strong> ${projeto.voluntarios}</p>` : ''}
-                    ${projeto.metaFinanceira > 0 ? `
-                        <p><strong>Meta Financeira:</strong> ${formatarMoeda(projeto.metaFinanceira)}</p>
-                        <p><strong>Arrecadado:</strong> ${formatarMoeda(projeto.arrecadado)} (${percentual}%)</p>
-                        <div style="background: #e0e0e0; border-radius: 10px; height: 10px; margin: 0.5rem 0;">
-                            <div style="background: var(--primary-color); height: 100%; border-radius: 10px; width: ${percentual}%;"></div>
-                        </div>
-                    ` : ''}
-                    <p><strong>Status:</strong> <span class="highlight-text">Ativo</span></p>
-                    <a href="cadastro.html" class="btn mt-1">Participar</a>
-                `;
+                // Usar o sistema de templates
+                const cardHTML = templateEngine.render('projectCard', {
+                    icone: icone,
+                    titulo: projeto.titulo,
+                    categoria: projeto.categoria,
+                    descricao: projeto.descricao,
+                    impacto: projeto.impacto,
+                    beneficiados: projeto.beneficiados,
+                    voluntarios: projeto.voluntarios,
+                    metaFinanceira: projeto.metaFinanceira,
+                    arrecadado: projeto.arrecadado,
+                    percentual: percentual,
+                    status: 'Ativo'
+                });
 
-                container.appendChild(card);
+                const div = document.createElement('div');
+                div.innerHTML = cardHTML;
+                container.appendChild(div.firstElementChild);
             });
         }
     </script>
